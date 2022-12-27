@@ -1,13 +1,13 @@
 package bank
 
 import (
-	commoncodec "github.com/irisnet/core-sdk-go/common/codec"
-	"github.com/irisnet/core-sdk-go/common/codec/types"
-	commoncryptocodec "github.com/irisnet/core-sdk-go/common/crypto/codec"
-	sdk "github.com/irisnet/core-sdk-go/types"
-	"github.com/irisnet/core-sdk-go/types/auth"
+	commoncodec "github.com/uptsmart/uptick-sdk-go/common/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/codec/types"
+	commoncryptocodec "github.com/uptsmart/uptick-sdk-go/common/crypto/codec"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
+	"github.com/uptsmart/uptick-sdk-go/types/auth"
 
-	ethTypes "github.com/irisnet/core-sdk-go/ethermint/types"
+	ethTypes "github.com/uptsmart/uptick-sdk-go/ethermint/types"
 )
 
 var (

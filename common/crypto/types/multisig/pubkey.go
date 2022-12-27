@@ -3,7 +3,7 @@ package multisig
 import (
 	"github.com/tendermint/tendermint/crypto"
 
-	"github.com/irisnet/core-sdk-go/types/tx/signing"
+	"github.com/uptsmart/uptick-sdk-go/types/tx/signing"
 )
 
 // PubKey defines a type which supports multi-signature verification via MultiSignatureData

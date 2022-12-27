@@ -3,7 +3,7 @@ package common
 import (
 	"crypto/rand"
 
-	"github.com/irisnet/core-sdk-go/types"
+	"github.com/uptsmart/uptick-sdk-go/types"
 )
 
 // GenerateRandomBytes returns securely generated random bytes.

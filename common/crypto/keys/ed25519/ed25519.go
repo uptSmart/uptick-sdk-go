@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/irisnet/core-sdk-go/common/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/codec"
 
 	"github.com/tendermint/tendermint/crypto"
 	tmed25519 "github.com/tendermint/tendermint/crypto/ed25519"
 	"github.com/tendermint/tendermint/crypto/tmhash"
 	"golang.org/x/crypto/ed25519"
 
-	cryptotypes "github.com/irisnet/core-sdk-go/common/crypto/types"
+	cryptotypes "github.com/uptsmart/uptick-sdk-go/common/crypto/types"
 )
 
 //-------------------------------------

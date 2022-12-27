@@ -1,7 +1,7 @@
 package types
 
 import (
-	"github.com/irisnet/core-sdk-go/types/tx/signing"
+	"github.com/uptsmart/uptick-sdk-go/types/tx/signing"
 )
 
 // SignModeHandler defines a interface to be implemented by types which will handle

@@ -2,14 +2,14 @@ package store
 
 import (
 	"fmt"
-	snapshottypes "github.com/irisnet/core-sdk-go/store/types/snapshots"
+	snapshottypes "github.com/uptsmart/uptick-sdk-go/store/types/snapshots"
 	"io"
 
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmstrings "github.com/tendermint/tendermint/libs/strings"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/irisnet/core-sdk-go/types/kv"
+	"github.com/uptsmart/uptick-sdk-go/types/kv"
 )
 
 type Store interface {

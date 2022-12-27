@@ -1,16 +1,16 @@
 package codec
 
 import (
-	"github.com/irisnet/core-sdk-go/common/codec"
-	commoncrypto "github.com/irisnet/core-sdk-go/common/codec"
-	"github.com/irisnet/core-sdk-go/common/crypto/keys/ed25519"
-	"github.com/irisnet/core-sdk-go/common/crypto/keys/multisig"
-	"github.com/irisnet/core-sdk-go/common/crypto/keys/secp256k1"
-	"github.com/irisnet/core-sdk-go/common/crypto/keys/sm2"
+	"github.com/uptsmart/uptick-sdk-go/common/codec"
+	commoncrypto "github.com/uptsmart/uptick-sdk-go/common/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/ed25519"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/multisig"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/secp256k1"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/sm2"
 
-	"github.com/irisnet/core-sdk-go/common/crypto/keys/eth_secp256k1"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/eth_secp256k1"
 
-	cryptotypes "github.com/irisnet/core-sdk-go/common/crypto/types"
+	cryptotypes "github.com/uptsmart/uptick-sdk-go/common/crypto/types"
 	"github.com/tendermint/tendermint/crypto"
 	tmed25519 "github.com/tendermint/tendermint/crypto/ed25519"
 	tmsm2 "github.com/tendermint/tendermint/crypto/sm2"

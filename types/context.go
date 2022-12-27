@@ -2,12 +2,12 @@ package types
 
 import (
 	"context"
-	"github.com/irisnet/core-sdk-go/store/gaskv"
-	"github.com/irisnet/core-sdk-go/store/types"
+	"github.com/uptsmart/uptick-sdk-go/store/gaskv"
+	"github.com/uptsmart/uptick-sdk-go/store/types"
 	"time"
 
 	"github.com/gogo/protobuf/proto"
-	stypes "github.com/irisnet/core-sdk-go/store"
+	stypes "github.com/uptsmart/uptick-sdk-go/store"
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmbytes "github.com/tendermint/tendermint/libs/bytes"
 	"github.com/tendermint/tendermint/libs/log"
@@ -47,17 +47,17 @@ type Request = Context
 func (c Context) Context() context.Context      { return c.ctx }
 func (c Context) MultiStore() types.MultiStore  { return c.ms }
 func (c Context) BlockHeight() int64            { return c.header.Height }
-func (c Context) BlockTime() time.Time        { return c.header.Time }
-func (c Context) ChainID() string             { return c.chainID }
-func (c Context) TxBytes() []byte             { return c.txBytes }
-func (c Context) Logger() log.Logger          { return c.logger }
+func (c Context) BlockTime() time.Time          { return c.header.Time }
+func (c Context) ChainID() string               { return c.chainID }
+func (c Context) TxBytes() []byte               { return c.txBytes }
+func (c Context) Logger() log.Logger            { return c.logger }
 func (c Context) VoteInfos() []abci.VoteInfo    { return c.voteInfo }
 func (c Context) GasMeter() types.GasMeter      { return c.gasMeter }
 func (c Context) BlockGasMeter() types.GasMeter { return c.blockGasMeter }
 func (c Context) IsCheckTx() bool               { return c.checkTx }
-func (c Context) IsReCheckTx() bool           { return c.recheckTx }
-func (c Context) MinGasPrices() DecCoins      { return c.minGasPrice }
-func (c Context) EventManager() *EventManager { return c.eventManager }
+func (c Context) IsReCheckTx() bool             { return c.recheckTx }
+func (c Context) MinGasPrices() DecCoins        { return c.minGasPrice }
+func (c Context) EventManager() *EventManager   { return c.eventManager }
 
 // clone the header before returning
 func (c Context) BlockHeader() tmproto.Header {

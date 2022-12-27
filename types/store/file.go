@@ -3,8 +3,8 @@ package store
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/irisnet/core-sdk-go/common/crypto/codec"
-	"github.com/irisnet/core-sdk-go/common/crypto/hd"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/hd"
 	"io/ioutil"
 	"os"
 	"path/filepath"

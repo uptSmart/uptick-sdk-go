@@ -10,13 +10,13 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	sdk "github.com/irisnet/core-sdk-go"
-	"github.com/irisnet/core-sdk-go/common/crypto"
-	"github.com/irisnet/core-sdk-go/common/log"
-	"github.com/irisnet/core-sdk-go/types"
-	"github.com/irisnet/core-sdk-go/types/store"
+	sdk "github.com/uptsmart/uptick-sdk-go"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto"
+	"github.com/uptsmart/uptick-sdk-go/common/log"
+	"github.com/uptsmart/uptick-sdk-go/types"
+	"github.com/uptsmart/uptick-sdk-go/types/store"
 
-	ethTypes "github.com/irisnet/core-sdk-go/ethermint/types"
+	ethTypes "github.com/uptsmart/uptick-sdk-go/ethermint/types"
 )
 
 const (
@@ -71,13 +71,16 @@ func (s *IntegrationTestSuite) SetupSuite() {
 		types.Bech32AddressPrefixOption(&bech32AddressPrefix),
 		types.BIP44PathOption(""),
 	}
+
 	cfg, err := types.NewClientConfig(nodeURI, grpcAddr, chainID, options...)
 	if err != nil {
 		panic(err)
 	}
 
 	s.Client = sdk.NewClient(cfg)
+
 	s.r = rand.New(rand.NewSource(time.Now().UnixNano()))
+
 	s.rootAccount = MockAccount{
 		Name:     "val1",
 		Password: "1234567890",
@@ -155,6 +158,7 @@ func getPrivKeyArmor() []byte {
 
 type TokenManager struct{}
 
+////
 func (TokenManager TokenManager) QueryToken(denom string) (types.Token, error) {
 	return types.Token{}, nil
 }

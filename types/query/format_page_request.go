@@ -1,6 +1,6 @@
 package query
 
-import sdk "github.com/irisnet/core-sdk-go/types"
+import sdk "github.com/uptsmart/uptick-sdk-go/types"
 
 const (
 	CountTotalErrMsg = "pageRequest error: CountTotal is not supported, must be false"

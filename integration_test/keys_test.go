@@ -4,7 +4,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func (s IntegrationTestSuite) TestKeys() {
+func (s IntegrationTestSuite) TetKeys() {
 	name, password := s.RandStringOfLength(20), s.RandStringOfLength(8)
 
 	address, mnemonic, err := s.Key.Add(name, password)

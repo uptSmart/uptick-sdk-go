@@ -3,9 +3,9 @@ package tx
 import (
 	"fmt"
 
-	"github.com/irisnet/core-sdk-go/common/codec"
-	sdk "github.com/irisnet/core-sdk-go/types"
-	signingtypes "github.com/irisnet/core-sdk-go/types/tx/signing"
+	"github.com/uptsmart/uptick-sdk-go/common/codec"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
+	signingtypes "github.com/uptsmart/uptick-sdk-go/types/tx/signing"
 )
 
 type config struct {

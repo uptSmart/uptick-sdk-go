@@ -3,15 +3,15 @@ package tx
 import (
 	"fmt"
 
-	cryptotypes "github.com/irisnet/core-sdk-go/common/crypto/types"
+	cryptotypes "github.com/uptsmart/uptick-sdk-go/common/crypto/types"
 
 	"github.com/gogo/protobuf/proto"
 
 	"github.com/tendermint/tendermint/crypto"
 
-	codectypes "github.com/irisnet/core-sdk-go/common/codec/types"
-	sdk "github.com/irisnet/core-sdk-go/types"
-	"github.com/irisnet/core-sdk-go/types/tx/signing"
+	codectypes "github.com/uptsmart/uptick-sdk-go/common/codec/types"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
+	"github.com/uptsmart/uptick-sdk-go/types/tx/signing"
 )
 
 // wrapper is a wrapper around the Tx proto.Message which retain the raw

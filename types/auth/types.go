@@ -4,13 +4,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-
 	"github.com/gogo/protobuf/proto"
 	"github.com/tendermint/tendermint/crypto"
 
-	commoncodec "github.com/irisnet/core-sdk-go/common/codec"
-	codectypes "github.com/irisnet/core-sdk-go/common/codec/types"
-	sdk "github.com/irisnet/core-sdk-go/types"
+	commoncodec "github.com/uptsmart/uptick-sdk-go/common/codec"
+	codectypes "github.com/uptsmart/uptick-sdk-go/common/codec/types"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
 )
 
 // Account is an interface used to store coins at a given address within state.
@@ -107,6 +106,7 @@ func (acc *BaseAccount) SetSequence(seq uint64) error {
 
 //json.Marshal BaseAccount
 func (acc BaseAccount) String() string {
+
 	out, _ := json.Marshal(acc)
 	return string(out)
 }
@@ -120,6 +120,7 @@ func (acc *BaseAccount) Convert() interface{} {
 // Convert return a sdk.BaseAccount
 // in order to unpack pubKey so not use Convert()
 func (acc *BaseAccount) ConvertAccount(cdc commoncodec.Marshaler) interface{} {
+
 	account := sdk.BaseAccount{
 		Address:       acc.Address,
 		AccountNumber: acc.AccountNumber,
@@ -142,5 +143,6 @@ func (acc *BaseAccount) ConvertAccount(cdc commoncodec.Marshaler) interface{} {
 	}
 
 	account.PubKey = pkStr
+
 	return account
 }

@@ -7,10 +7,10 @@ import (
 
 	proto "github.com/gogo/protobuf/proto"
 
-	"github.com/irisnet/core-sdk-go/common/codec/types"
-	crypto "github.com/irisnet/core-sdk-go/common/crypto/types"
-	multisigtypes "github.com/irisnet/core-sdk-go/common/crypto/types/multisig"
-	"github.com/irisnet/core-sdk-go/types/tx/signing"
+	"github.com/uptsmart/uptick-sdk-go/common/codec/types"
+	crypto "github.com/uptsmart/uptick-sdk-go/common/crypto/types"
+	multisigtypes "github.com/uptsmart/uptick-sdk-go/common/crypto/types/multisig"
+	"github.com/uptsmart/uptick-sdk-go/types/tx/signing"
 )
 
 var _ multisigtypes.PubKey = &LegacyAminoPubKey{}

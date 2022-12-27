@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/irisnet/core-sdk-go/common/codec/types"
+	"github.com/uptsmart/uptick-sdk-go/common/codec/types"
 
-	sdk "github.com/irisnet/core-sdk-go/types"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
 )
 
 // MaxGasWanted defines the max gas allowed.

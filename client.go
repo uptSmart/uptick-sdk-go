@@ -1,20 +1,16 @@
 package sdk
 
 import (
-	"github.com/irisnet/core-sdk-go/feegrant"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/irisnet/core-sdk-go/bank"
-	"github.com/irisnet/core-sdk-go/client"
-	keys "github.com/irisnet/core-sdk-go/client"
-	commoncodec "github.com/irisnet/core-sdk-go/common/codec"
-	cryptotypes "github.com/irisnet/core-sdk-go/common/codec/types"
-	commoncryptocodec "github.com/irisnet/core-sdk-go/common/crypto/codec"
-	"github.com/irisnet/core-sdk-go/gov"
-	"github.com/irisnet/core-sdk-go/ibc/transfer"
-	"github.com/irisnet/core-sdk-go/staking"
-	"github.com/irisnet/core-sdk-go/types"
-	txtypes "github.com/irisnet/core-sdk-go/types/tx"
+	"github.com/uptsmart/uptick-sdk-go/bank"
+	"github.com/uptsmart/uptick-sdk-go/client"
+	keys "github.com/uptsmart/uptick-sdk-go/client"
+	commoncodec "github.com/uptsmart/uptick-sdk-go/common/codec"
+	cryptotypes "github.com/uptsmart/uptick-sdk-go/common/codec/types"
+	commoncryptocodec "github.com/uptsmart/uptick-sdk-go/common/crypto/codec"
+	"github.com/uptsmart/uptick-sdk-go/types"
+	txtypes "github.com/uptsmart/uptick-sdk-go/types/tx"
 )
 
 type Client struct {
@@ -22,12 +18,8 @@ type Client struct {
 	moduleManager  map[string]types.Module
 	encodingConfig types.EncodingConfig
 	types.BaseClient
-	Bank     bank.Client
-	Key      keys.Client
-	Staking  staking.Client
-	Gov      gov.Client
-	Transfer transfer.Client
-	FeeGrant feegrant.Client
+	Bank bank.Client
+	Key  keys.Client
 }
 
 func NewClient(cfg types.ClientConfig) Client {
@@ -38,10 +30,6 @@ func NewClient(cfg types.ClientConfig) Client {
 	baseClient := client.NewBaseClient(cfg, encodingConfig, nil)
 	bankClient := bank.NewClient(baseClient, encodingConfig.Marshaler)
 	keysClient := keys.NewKeysClient(cfg, baseClient)
-	transferClient := transfer.NewClient(baseClient, encodingConfig.Marshaler)
-	stakingClient := staking.NewClient(baseClient, encodingConfig.Marshaler)
-	govClient := gov.NewClient(baseClient, encodingConfig.Marshaler)
-	feeGrantClient := feegrant.NewClient(baseClient, encodingConfig.Marshaler)
 
 	client := Client{
 		logger:         baseClient.Logger(),
@@ -50,17 +38,9 @@ func NewClient(cfg types.ClientConfig) Client {
 		encodingConfig: encodingConfig,
 		Bank:           bankClient,
 		Key:            keysClient,
-		Staking:        stakingClient,
-		Gov:            govClient,
-		Transfer:       transferClient,
-		FeeGrant:       feeGrantClient,
 	}
 	client.RegisterModule(
 		bankClient,
-		stakingClient,
-		govClient,
-		transferClient,
-		feeGrantClient,
 	)
 	return client
 }

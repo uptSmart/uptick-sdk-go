@@ -3,9 +3,9 @@ package tx
 import (
 	"fmt"
 
-	codectypes "github.com/irisnet/core-sdk-go/common/codec/types"
+	codectypes "github.com/uptsmart/uptick-sdk-go/common/codec/types"
 
-	sdk "github.com/irisnet/core-sdk-go/types"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
 )
 
 func Unwrap(anyUnpacker codectypes.AnyUnpacker, tx sdk.Tx) (*sdk.UnwrappedTx, error) {

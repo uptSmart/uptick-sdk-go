@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/irisnet/core-sdk-go/common/bech32"
+	"github.com/uptsmart/uptick-sdk-go/common/bech32"
 )
 
 func TestGetFromBech32(t *testing.T) {

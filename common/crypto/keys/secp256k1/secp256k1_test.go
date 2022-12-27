@@ -15,9 +15,9 @@ import (
 
 	underlyingSecp256k1 "github.com/btcsuite/btcd/btcec"
 
-	"github.com/irisnet/core-sdk-go/common/codec"
-	"github.com/irisnet/core-sdk-go/common/crypto/keys/secp256k1"
-	cryptotypes "github.com/irisnet/core-sdk-go/common/crypto/types"
+	"github.com/uptsmart/uptick-sdk-go/common/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/secp256k1"
+	cryptotypes "github.com/uptsmart/uptick-sdk-go/common/crypto/types"
 )
 
 type keyData struct {

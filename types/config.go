@@ -8,8 +8,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
-	"github.com/irisnet/core-sdk-go/common/crypto"
-	"github.com/irisnet/core-sdk-go/types/store"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto"
+	"github.com/uptsmart/uptick-sdk-go/types/store"
 )
 
 const (
@@ -185,6 +185,7 @@ func FeeOption(fee DecCoins) Option {
 
 func KeyDAOOption(dao store.KeyDAO) Option {
 	return func(cfg *ClientConfig) error {
+
 		if dao == nil {
 			defaultPath := os.ExpandEnv(defaultPath)
 			levelDB, err := store.NewLevelDB(defaultPath, nil)
@@ -193,6 +194,7 @@ func KeyDAOOption(dao store.KeyDAO) Option {
 			}
 			dao = levelDB
 		}
+		
 		cfg.KeyDAO = dao
 		return nil
 	}

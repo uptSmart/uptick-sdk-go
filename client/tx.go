@@ -10,8 +10,8 @@ import (
 	"github.com/gogo/protobuf/jsonpb"
 	ctypes "github.com/tendermint/tendermint/rpc/core/types"
 
-	sdk "github.com/irisnet/core-sdk-go/types"
-	typetx "github.com/irisnet/core-sdk-go/types/tx"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
+	typetx "github.com/uptsmart/uptick-sdk-go/types/tx"
 )
 
 // QueryTx returns the tx info

@@ -3,7 +3,7 @@ package codec
 import (
 	"bytes"
 
-	"github.com/irisnet/core-sdk-go/common/codec/types"
+	"github.com/uptsmart/uptick-sdk-go/common/codec/types"
 
 	"github.com/gogo/protobuf/jsonpb"
 	"github.com/gogo/protobuf/proto"

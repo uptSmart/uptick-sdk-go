@@ -8,7 +8,7 @@ import (
 	ctypes "github.com/tendermint/tendermint/rpc/core/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	commoncodec "github.com/irisnet/core-sdk-go/common/codec"
+	commoncodec "github.com/uptsmart/uptick-sdk-go/common/codec"
 )
 
 type Block struct {

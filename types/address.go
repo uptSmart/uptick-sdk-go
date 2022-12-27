@@ -7,7 +7,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/irisnet/core-sdk-go/common/bech32"
+	"github.com/uptsmart/uptick-sdk-go/common/bech32"
 )
 
 const (

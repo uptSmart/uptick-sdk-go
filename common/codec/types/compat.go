@@ -134,6 +134,7 @@ type AminoJSONUnpacker struct {
 var _ AnyUnpacker = AminoJSONUnpacker{}
 
 func (a AminoJSONUnpacker) UnpackAny(any *Any, iface interface{}) error {
+
 	ac := any.compat
 	if ac == nil {
 		return anyCompatError("JSON unmarshal", reflect.TypeOf(iface))
@@ -172,6 +173,7 @@ type AminoJSONPacker struct {
 var _ AnyUnpacker = AminoJSONPacker{}
 
 func (a AminoJSONPacker) UnpackAny(any *Any, _ interface{}) error {
+
 	err := UnpackInterfaces(any.cachedValue, a)
 	if err != nil {
 		return err
@@ -181,6 +183,7 @@ func (a AminoJSONPacker) UnpackAny(any *Any, _ interface{}) error {
 		jsonBz: bz,
 		err:    err,
 	}
+
 	return err
 }
 

@@ -7,7 +7,7 @@ import (
 	fmt "fmt"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
-	auth "github.com/irisnet/core-sdk-go/types/auth"
+	auth "github.com/uptsmart/uptick-sdk-go/types/auth"
 	_ "github.com/regen-network/cosmos-proto"
 	io "io"
 	math "math"

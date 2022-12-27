@@ -3,7 +3,7 @@ package common
 import (
 	"testing"
 
-	"github.com/irisnet/core-sdk-go/types"
+	"github.com/uptsmart/uptick-sdk-go/types"
 
 	"github.com/stretchr/testify/require"
 )

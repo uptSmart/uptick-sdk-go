@@ -1,22 +1,17 @@
 package client
 
 import (
-	"encoding/hex"
 	"fmt"
-	"github.com/btcsuite/btcutil/bech32"
-
 	tmcrypto "github.com/tendermint/tendermint/crypto"
 
-	kmg "github.com/irisnet/core-sdk-go/common/crypto"
-	cryptoamino "github.com/irisnet/core-sdk-go/common/crypto/codec"
-	"github.com/irisnet/core-sdk-go/common/crypto/hd"
-	"github.com/irisnet/core-sdk-go/common/crypto/keys/secp256k1"
-	"github.com/irisnet/core-sdk-go/common/crypto/keys/sm2"
-	commoncryptotypes "github.com/irisnet/core-sdk-go/common/crypto/types"
-	"github.com/irisnet/core-sdk-go/types"
-	"github.com/irisnet/core-sdk-go/types/store"
-
-	"github.com/ethereum/go-ethereum/common"
+	kmg "github.com/uptsmart/uptick-sdk-go/common/crypto"
+	cryptoamino "github.com/uptsmart/uptick-sdk-go/common/crypto/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/hd"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/secp256k1"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/sm2"
+	commoncryptotypes "github.com/uptsmart/uptick-sdk-go/common/crypto/types"
+	"github.com/uptsmart/uptick-sdk-go/types"
+	"github.com/uptsmart/uptick-sdk-go/types/store"
 )
 
 type KeyManager struct {
@@ -127,12 +122,12 @@ func (k KeyManager) Import(name, password, armor string) (string, error) {
 	}
 
 	pubKey := km.ExportPubKey()
+
+	//cosmos type address
 	address := types.AccAddress(pubKey.Address().Bytes()).String()
 
-	//
-	evmAddress := common.BytesToAddress(pubKey.Address().Bytes())
-	fmt.Printf("xxl evmAdddress %v \n", evmAddress)
-
+	//eth type address
+	// evmAddress := common.BytesToAddress(pubKey.Address().Bytes())
 	info := store.KeyInfo{
 		Name:         name,
 		PubKey:       cryptoamino.MarshalPubkey(pubKey),
@@ -144,20 +139,6 @@ func (k KeyManager) Import(name, password, armor string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-
-	// uptick1ehh5503n2rhpz8evfqpsa62kfqc58c5g02kjhd
-	// 0xCdEf4A3e3350EE111f2c48030ee956483143E288
-	// 19171714140f11130a0317010207190c090001101d1a0a160900181407181408
-	hrp, decoded, err := bech32.Decode("uptick1ehh5503n2rhpz8evfqpsa62kfqc58c5g02kjhd")
-	if err != nil {
-		fmt.Println("Error:", err)
-	}
-
-	// Show the decoded data.
-	fmt.Println("xxl Decoded human-readable part:", hrp)
-	fmt.Println("xxl Decoded Data:", hex.EncodeToString(decoded))
-
-	///
 
 	return address, nil
 }

@@ -5,9 +5,9 @@ import (
 
 	"github.com/tendermint/tendermint/crypto"
 
-	"github.com/irisnet/core-sdk-go/common/codec"
-	"github.com/irisnet/core-sdk-go/common/crypto/types"
-	"github.com/irisnet/core-sdk-go/types/tx/signing"
+	"github.com/uptsmart/uptick-sdk-go/common/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/types"
+	"github.com/uptsmart/uptick-sdk-go/types/tx/signing"
 )
 
 // SignatureDataToModeInfoAndSig converts a SignatureData to a ModeInfo and raw bytes signature

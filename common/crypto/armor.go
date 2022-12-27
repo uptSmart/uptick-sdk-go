@@ -11,8 +11,8 @@ import (
 	"github.com/tendermint/tendermint/crypto/armor"
 	"github.com/tendermint/tendermint/crypto/xsalsa20symmetric"
 
-	"github.com/irisnet/core-sdk-go/common/codec/legacy"
-	cryptoAmino "github.com/irisnet/core-sdk-go/common/crypto/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/codec/legacy"
+	cryptoAmino "github.com/uptsmart/uptick-sdk-go/common/crypto/codec"
 )
 
 const (

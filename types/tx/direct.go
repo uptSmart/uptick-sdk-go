@@ -3,8 +3,8 @@ package tx
 import (
 	"fmt"
 
-	sdk "github.com/irisnet/core-sdk-go/types"
-	signingtypes "github.com/irisnet/core-sdk-go/types/tx/signing"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
+	signingtypes "github.com/uptsmart/uptick-sdk-go/types/tx/signing"
 )
 
 // signModeDirectHandler defines the SIGN_MODE_DIRECT SignModeHandler

@@ -3,7 +3,7 @@ package types
 import (
 	"github.com/tendermint/tendermint/crypto"
 
-	commoncodec "github.com/irisnet/core-sdk-go/common/codec"
+	commoncodec "github.com/uptsmart/uptick-sdk-go/common/codec"
 )
 
 type (

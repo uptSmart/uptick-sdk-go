@@ -10,8 +10,8 @@ import (
 
 	"github.com/cosmos/go-bip39"
 
-	cryptoAmino "github.com/irisnet/core-sdk-go/common/crypto/codec"
-	"github.com/irisnet/core-sdk-go/common/crypto/hd"
+	cryptoAmino "github.com/uptsmart/uptick-sdk-go/common/crypto/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/hd"
 )
 
 const (

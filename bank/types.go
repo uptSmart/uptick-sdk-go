@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	sdk "github.com/irisnet/core-sdk-go/types"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
 )
 
 const (

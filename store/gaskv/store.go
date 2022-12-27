@@ -1,12 +1,12 @@
 package gaskv
 
 import (
-	"github.com/irisnet/core-sdk-go/store/types"
-	"github.com/irisnet/core-sdk-go/telemetry"
+	"github.com/uptsmart/uptick-sdk-go/store/types"
+	"github.com/uptsmart/uptick-sdk-go/telemetry"
 	"io"
 	"time"
 
-	"github.com/irisnet/core-sdk-go/store"
+	"github.com/uptsmart/uptick-sdk-go/store"
 )
 
 var _ types.KVStore = &Store{}

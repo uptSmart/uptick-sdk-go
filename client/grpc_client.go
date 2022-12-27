@@ -2,8 +2,8 @@ package client
 
 import (
 	grpc1 "github.com/gogo/protobuf/grpc"
-	"github.com/irisnet/core-sdk-go/types"
 	log "github.com/sirupsen/logrus"
+	"github.com/uptsmart/uptick-sdk-go/types"
 	"google.golang.org/grpc"
 )
 

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/irisnet/core-sdk-go/common"
-	commoncodec "github.com/irisnet/core-sdk-go/common/codec"
-	"github.com/irisnet/core-sdk-go/common/codec/types"
-	sdk "github.com/irisnet/core-sdk-go/types"
+	"github.com/uptsmart/uptick-sdk-go/common"
+	commoncodec "github.com/uptsmart/uptick-sdk-go/common/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/codec/types"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
 )
 
 type bankClient struct {
@@ -34,8 +34,6 @@ func (b bankClient) RegisterInterfaceTypes(registry types.InterfaceRegistry) {
 
 // QueryAccount return account information specified address
 func (b bankClient) QueryAccount(address string) (sdk.BaseAccount, sdk.Error) {
-
-	fmt.Println("xxl QueryAccount ...")
 
 	account, err := b.BaseClient.QueryAccount(address)
 

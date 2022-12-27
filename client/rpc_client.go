@@ -8,11 +8,11 @@ import (
 	rpc "github.com/tendermint/tendermint/rpc/client"
 	tmtypes "github.com/tendermint/tendermint/types"
 
-	commoncodec "github.com/irisnet/core-sdk-go/common/codec"
-	"github.com/irisnet/core-sdk-go/common/uuid"
-	sdk "github.com/irisnet/core-sdk-go/types"
-	sdktypes "github.com/irisnet/core-sdk-go/types"
-	sdkrpc "github.com/irisnet/core-sdk-go/types/rpc"
+	commoncodec "github.com/uptsmart/uptick-sdk-go/common/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/uuid"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
+	sdktypes "github.com/uptsmart/uptick-sdk-go/types"
+	sdkrpc "github.com/uptsmart/uptick-sdk-go/types/rpc"
 )
 
 type rpcClient struct {

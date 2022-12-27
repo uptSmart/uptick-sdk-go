@@ -5,7 +5,7 @@ import (
 
 	"github.com/tendermint/tendermint/crypto"
 
-	"github.com/irisnet/core-sdk-go/common/crypto/hd"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/hd"
 )
 
 var (

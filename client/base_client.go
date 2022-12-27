@@ -17,12 +17,12 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	rpcclient "github.com/tendermint/tendermint/rpc/client"
 
-	"github.com/irisnet/core-sdk-go/common"
-	commoncache "github.com/irisnet/core-sdk-go/common/cache"
-	commoncodec "github.com/irisnet/core-sdk-go/common/codec"
-	sdklog "github.com/irisnet/core-sdk-go/common/log"
-	sdktypes "github.com/irisnet/core-sdk-go/types"
-	"github.com/irisnet/core-sdk-go/types/tx"
+	"github.com/uptsmart/uptick-sdk-go/common"
+	commoncache "github.com/uptsmart/uptick-sdk-go/common/cache"
+	commoncodec "github.com/uptsmart/uptick-sdk-go/common/codec"
+	sdklog "github.com/uptsmart/uptick-sdk-go/common/log"
+	sdktypes "github.com/uptsmart/uptick-sdk-go/types"
+	"github.com/uptsmart/uptick-sdk-go/types/tx"
 )
 
 const (

@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/irisnet/core-sdk-go/common/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/codec"
 )
 
 const (

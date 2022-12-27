@@ -6,9 +6,9 @@ import (
 	"sort"
 	"strings"
 
-	types "github.com/irisnet/core-sdk-go/store"
+	types "github.com/uptsmart/uptick-sdk-go/store"
 
-	"github.com/irisnet/core-sdk-go/types/kv"
+	"github.com/uptsmart/uptick-sdk-go/types/kv"
 )
 
 type (

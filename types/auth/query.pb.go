@@ -9,7 +9,7 @@ import (
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
-	types "github.com/irisnet/core-sdk-go/common/codec/types"
+	types "github.com/uptsmart/uptick-sdk-go/common/codec/types"
 	_ "github.com/regen-network/cosmos-proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
@@ -18,6 +18,7 @@ import (
 	io "io"
 	math "math"
 	math_bits "math/bits"
+	// "strconv"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -73,8 +74,12 @@ var xxx_messageInfo_QueryAccountRequest proto.InternalMessageInfo
 // QueryAccountResponse is the response type for the Query/Account RPC method.
 type QueryAccountResponse struct {
 	// account defines the account of the corresponding address.
+	// URL string
 	Account *types.Any `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
+	//Account BaseAccount
 }
+
+
 
 func (m *QueryAccountResponse) Reset()         { *m = QueryAccountResponse{} }
 func (m *QueryAccountResponse) String() string { return proto.CompactTextString(m) }
@@ -266,8 +271,10 @@ func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 }
 
 func (c *queryClient) Account(ctx context.Context, in *QueryAccountRequest, opts ...grpc.CallOption) (*QueryAccountResponse, error) {
+
 	out := new(QueryAccountResponse)
 	err := c.cc.Invoke(ctx, "/cosmos.auth.v1beta1.Query/Account", in, out, opts...)
+
 	if err != nil {
 		return nil, err
 	}
@@ -544,6 +551,7 @@ func sozQuery(x uint64) (n int) {
 	return sovQuery(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
 func (m *QueryAccountRequest) Unmarshal(dAtA []byte) error {
+
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -626,6 +634,7 @@ func (m *QueryAccountRequest) Unmarshal(dAtA []byte) error {
 	return nil
 }
 func (m *QueryAccountResponse) Unmarshal(dAtA []byte) error {
+
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -641,10 +650,12 @@ func (m *QueryAccountResponse) Unmarshal(dAtA []byte) error {
 			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= uint64(b&0x7F) << shift
+
 			if b < 0x80 {
 				break
 			}
 		}
+
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
@@ -673,6 +684,7 @@ func (m *QueryAccountResponse) Unmarshal(dAtA []byte) error {
 					break
 				}
 			}
+
 			if msglen < 0 {
 				return ErrInvalidLengthQuery
 			}
@@ -709,6 +721,7 @@ func (m *QueryAccountResponse) Unmarshal(dAtA []byte) error {
 	if iNdEx > l {
 		return io.ErrUnexpectedEOF
 	}
+
 	return nil
 }
 func (m *QueryParamsRequest) Unmarshal(dAtA []byte) error {

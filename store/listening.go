@@ -3,7 +3,7 @@ package store
 import (
 	"io"
 
-	"github.com/irisnet/core-sdk-go/common/codec"
+	"github.com/uptsmart/uptick-sdk-go/common/codec"
 )
 
 // WriteListener interface for streaming data out from a listenkv.Store

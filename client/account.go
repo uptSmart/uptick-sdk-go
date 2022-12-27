@@ -3,15 +3,19 @@ package client
 import (
 	"context"
 	"fmt"
+	"github.com/uptsmart/uptick-sdk-go/bank"
+	"github.com/uptsmart/uptick-sdk-go/ethermint/types"
+	"github.com/uptsmart/uptick-sdk-go/types/auth"
+
+	// "github.com/uptsmart/uptick-sdk-go/types/auth"
 	"time"
 
 	"github.com/tendermint/tendermint/libs/log"
 
-	cache "github.com/irisnet/core-sdk-go/common/cache"
-	commoncodec "github.com/irisnet/core-sdk-go/common/codec"
-	ethXTypes "github.com/irisnet/core-sdk-go/ethermint/evm/types"
-	// ethTypes "github.com/irisnet/core-sdk-go/ethermint/types"
-	sdk "github.com/irisnet/core-sdk-go/types"
+	cache "github.com/uptsmart/uptick-sdk-go/common/cache"
+	commoncodec "github.com/uptsmart/uptick-sdk-go/common/codec"
+	// ethTypes "github.com/uptsmart/uptick-sdk-go/ethermint/types"
+	sdk "github.com/uptsmart/uptick-sdk-go/types"
 	// "github.com/cosmos/cosmos-sdk/x/bank"
 )
 
@@ -47,54 +51,37 @@ func (a AccountQuery) QueryAndRefreshAccount(address string) (sdk.BaseAccount, s
 func (a AccountQuery) QueryAccount(address string) (sdk.BaseAccount, sdk.Error) {
 	conn, err := a.GenConn()
 
-	fmt.Printf("---xxl 0 \n")
+	if err != nil {
+		return sdk.BaseAccount{}, sdk.Wrap(err)
+	}
+	request := &auth.QueryAccountRequest{
+		Address: address,
+	}
+
+	response, err := auth.NewQueryClient(conn).Account(context.Background(), request)
 	if err != nil {
 		return sdk.BaseAccount{}, sdk.Wrap(err)
 	}
 
-	//request := &auth.QueryAccountRequest{
-	//	Address: address,
-	//}
-	fmt.Printf("---xxl 1 \n")
-	request := ethXTypes.QueryCosmosAccountRequest{
-		Address: "0x7c4663d780EfA75dAF623a4E79D505df8be88CDC",
-	}
-
-	fmt.Printf("---xxl 2 \n")
-	response, err := ethXTypes.NewQueryClient(conn).CosmosAccount(context.Background(), &request)
-	if err != nil {
-		fmt.Printf("---xxl 3 %v \n", err)
-
+	var baseAccount auth.Account
+	if err := a.cdc.UnpackAny(response.Account, &baseAccount); err != nil {
 		return sdk.BaseAccount{}, sdk.Wrap(err)
 	}
-	fmt.Printf("---xxl response %v \n", response)
 
-	// bank.NewQueryClient(conn).AllBalances(context.Background(), breq)
+	account := baseAccount.(*types.EthAccount).ConvertAccount(a.cdc).(sdk.BaseAccount)
 
-	return sdk.BaseAccount{}, nil
+	breq := &bank.QueryAllBalancesRequest{
 
-	//var baseAccount auth.Account
-	//var ethAccount ethTypes.EthAccount
-	//if err := a.cdc.UnpackAny(response., &ethAccount); err != nil {
-	//
-	//	fmt.Printf("---xxl err %v \n", err)
-	//	return sdk.BaseAccount{}, sdk.Wrap(err)
-	//}
-	//fmt.Printf("---xxl ethAccount %v \n", ethAccount)
-	//
-	//account := baseAccount.(*auth.BaseAccount).ConvertAccount(a.cdc).(sdk.BaseAccount)
-	//
-	//breq := &bank.QueryAllBalancesRequest{
-	//	Address:    address,
-	//	Pagination: nil,
-	//}
-	//balances, err := bank.NewQueryClient(conn).AllBalances(context.Background(), breq)
-	//if err != nil {
-	//	return sdk.BaseAccount{}, sdk.Wrap(err)
-	//}
-	//
-	//account.Coins = balances.Balances
-	//return account, nil
+		Address:    address,
+		Pagination: nil,
+	}
+	balances, err := bank.NewQueryClient(conn).AllBalances(context.Background(), breq)
+	if err != nil {
+		return sdk.BaseAccount{}, sdk.Wrap(err)
+	}
+
+	account.Coins = balances.Balances
+	return account, nil
 }
 
 func (a AccountQuery) QueryAddress(name, password string) (sdk.AccAddress, sdk.Error) {

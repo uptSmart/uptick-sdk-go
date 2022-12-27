@@ -9,7 +9,7 @@ for dir in $proto_dirs; do
   -I "proto" \
   -I "third_party/proto" \
   --gocosmos_out=plugins=interfacetype+grpc,\
-Mgoogle/protobuf/any.proto=github.com/irisnet/core-sdk-go/common/codec/types:. \
+Mgoogle/protobuf/any.proto=github.com/uptsmart/uptick-sdk-go/common/codec/types:. \
   $(find "${dir}" -maxdepth 1 -name '*.proto')
 
 done
@@ -17,5 +17,5 @@ done
 
 
 # move proto files to the right places
-cp -r github.com/irisnet/core-sdk-go/* ./
+cp -r github.com/uptsmart/uptick-sdk-go/* ./
 # rm -fr github.com

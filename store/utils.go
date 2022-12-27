@@ -3,7 +3,7 @@ package store
 import (
 	"bytes"
 
-	"github.com/irisnet/core-sdk-go/types/kv"
+	"github.com/uptsmart/uptick-sdk-go/types/kv"
 )
 
 // Iterator over all the keys with a certain prefix in ascending order

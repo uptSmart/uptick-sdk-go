@@ -5,7 +5,7 @@ export GO111MODULE = on
 format:
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "*.pb.go" | xargs gofmt -w -s
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "*.pb.go" | xargs misspell -w
-	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "*.pb.go" | xargs goimports -w -local github.com/irisnet/core-sdk-go
+	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "*.pb.go" | xargs goimports -w -local github.com/uptsmart/uptick-sdk-go
 
 test-unit:
 #	@echo $(PACKAGES_UNITTEST)
@@ -17,7 +17,7 @@ test-integration:
 #	@go test -v $(PACKAGES)
 #	cd integration_test/scripts/ && sh clean.sh
 
-	@go test -v github.com/irisnet/core-sdk-go/integration_test
+	@go test -v github.com/uptsmart/uptick-sdk-go/integration_test
 
 proto-gen:
 	@./third_party/protocgen.sh
