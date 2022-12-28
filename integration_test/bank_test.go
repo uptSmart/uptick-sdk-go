@@ -1,6 +1,7 @@
 package integration_test
 
 import (
+	"encoding/json"
 	"fmt"
 	"math/rand"
 	"sync"
@@ -12,7 +13,7 @@ import (
 	"github.com/uptsmart/uptick-sdk-go/types"
 )
 
-func (s IntegrationTestSuite) TestBank() {
+func (s IntegrationTestSuite) TetBank() {
 
 	cases := []SubTest{
 		{
@@ -48,9 +49,9 @@ func queryAccount(s IntegrationTestSuite) {
 
 	s.NoError(err)
 	s.NotEmpty(account)
-	//bz, _ := json.Marshal(account)
-	//
-	//fmt.Println(string(bz))
+	bz, _ := json.Marshal(account)
+
+	fmt.Println(string(bz))
 }
 
 /////

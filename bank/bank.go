@@ -36,7 +36,7 @@ func (b bankClient) RegisterInterfaceTypes(registry types.InterfaceRegistry) {
 func (b bankClient) QueryAccount(address string) (sdk.BaseAccount, sdk.Error) {
 
 	account, err := b.BaseClient.QueryAccount(address)
-
+	
 	if err != nil {
 		return sdk.BaseAccount{}, sdk.Wrap(err)
 	}
