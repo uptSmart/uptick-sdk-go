@@ -4,17 +4,14 @@ import (
 	"github.com/uptsmart/uptick-sdk-go/common/codec"
 	commoncrypto "github.com/uptsmart/uptick-sdk-go/common/codec"
 	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/ed25519"
+	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/eth_secp256k1"
 	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/multisig"
 	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/secp256k1"
-	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/sm2"
 
-	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/eth_secp256k1"
-
-	cryptotypes "github.com/uptsmart/uptick-sdk-go/common/crypto/types"
 	"github.com/tendermint/tendermint/crypto"
 	tmed25519 "github.com/tendermint/tendermint/crypto/ed25519"
-	tmsm2 "github.com/tendermint/tendermint/crypto/sm2"
 	tmsr25519 "github.com/tendermint/tendermint/crypto/sr25519"
+	cryptotypes "github.com/uptsmart/uptick-sdk-go/common/crypto/types"
 )
 
 var amino *commoncrypto.LegacyAmino
@@ -33,10 +30,8 @@ func RegisterCrypto(cdc *codec.LegacyAmino) {
 	cdc.RegisterInterface((*cryptotypes.PubKey)(nil), nil)
 	cdc.RegisterConcrete(tmed25519.PubKey{}, tmed25519.PubKeyName, nil)
 	cdc.RegisterConcrete(tmsr25519.PubKey{}, tmsr25519.PubKeyName, nil)
-	cdc.RegisterConcrete(tmsm2.PubKeySm2{}, tmsm2.PubKeyName, nil)
 	cdc.RegisterConcrete(&ed25519.PubKey{}, ed25519.PubKeyName, nil)
 	cdc.RegisterConcrete(&secp256k1.PubKey{}, secp256k1.PubKeyName, nil)
-	cdc.RegisterConcrete(&sm2.PubKey{}, sm2.PubKeyName, nil)
 	cdc.RegisterConcrete(&multisig.LegacyAminoPubKey{}, multisig.PubKeyAminoRoute, nil)
 
 	cdc.RegisterConcrete(&ethsecp256k1.PubKey{}, ethsecp256k1.PubKeyName, nil)
@@ -47,9 +42,6 @@ func RegisterCrypto(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&ed25519.PrivKey{}, ed25519.PrivKeyName, nil)
 	cdc.RegisterConcrete(tmsr25519.PrivKey{}, tmsr25519.PrivKeyName, nil)
 	cdc.RegisterConcrete(&secp256k1.PrivKey{}, secp256k1.PrivKeyName, nil)
-	cdc.RegisterConcrete(tmsm2.PrivKeySm2{}, tmsm2.PrivKeyName, nil)
-	cdc.RegisterConcrete(&sm2.PrivKey{}, sm2.PrivKeyName, nil)
-
 	cdc.RegisterConcrete(&ethsecp256k1.PrivKey{}, ethsecp256k1.PrivKeyName, nil)
 
 }

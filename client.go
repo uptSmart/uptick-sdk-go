@@ -2,6 +2,7 @@ package sdk
 
 import (
 	"github.com/tendermint/tendermint/libs/log"
+	"github.com/uptsmart/uptick-sdk-go/erc721"
 
 	"github.com/uptsmart/uptick-sdk-go/bank"
 	"github.com/uptsmart/uptick-sdk-go/client"
@@ -18,8 +19,9 @@ type Client struct {
 	moduleManager  map[string]types.Module
 	encodingConfig types.EncodingConfig
 	types.BaseClient
-	Bank bank.Client
-	Key  keys.Client
+	Bank   bank.Client
+	Key    keys.Client
+	Erc721 erc721.Client
 }
 
 func NewClient(cfg types.ClientConfig) Client {
@@ -29,6 +31,8 @@ func NewClient(cfg types.ClientConfig) Client {
 	// create a instance of baseClient
 	baseClient := client.NewBaseClient(cfg, encodingConfig, nil)
 	bankClient := bank.NewClient(baseClient, encodingConfig.Marshaler)
+	erc721Client := erc721.NewClient(baseClient, encodingConfig.Marshaler)
+
 	keysClient := keys.NewKeysClient(cfg, baseClient)
 
 	client := Client{
@@ -38,10 +42,13 @@ func NewClient(cfg types.ClientConfig) Client {
 		encodingConfig: encodingConfig,
 		Bank:           bankClient,
 		Key:            keysClient,
+		Erc721:         erc721Client,
 	}
 	client.RegisterModule(
 		bankClient,
+		erc721Client,
 	)
+
 	return client
 }
 

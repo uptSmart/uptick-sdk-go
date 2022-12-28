@@ -12,7 +12,6 @@ import (
 	"github.com/tendermint/tendermint/crypto"
 
 	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/secp256k1"
-	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/sm2"
 )
 
 type SignatureAlgo interface {
@@ -25,8 +24,6 @@ func NewSigningAlgoFromString(str string) (SignatureAlgo, error) {
 	switch str {
 	case string(Secp256k1.Name()):
 		return Secp256k1, nil
-	case string(Sm2.Name()):
-		return Sm2, nil
 	case string(EthSecp256k1.Name()):
 		return EthSecp256k1, nil
 	default:
@@ -126,15 +123,6 @@ func (s sm2Algo) Derive() DeriveFn {
 		}
 		derivedKey, err := DerivePrivateKeyForPath(masterPriv, ch, hdPath)
 		return derivedKey[:], err
-	}
-}
-
-// Generate generates a sm2 private key from the given bytes.
-func (s sm2Algo) Generate() GenerateFn {
-	return func(bz []byte) crypto.PrivKey {
-		var bzArr [sm2.PrivKeySize]byte
-		copy(bzArr[:], bz)
-		return &sm2.PrivKey{Key: bzArr[:]}
 	}
 }
 

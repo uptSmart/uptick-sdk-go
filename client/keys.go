@@ -8,7 +8,6 @@ import (
 	cryptoamino "github.com/uptsmart/uptick-sdk-go/common/crypto/codec"
 	"github.com/uptsmart/uptick-sdk-go/common/crypto/hd"
 	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/secp256k1"
-	"github.com/uptsmart/uptick-sdk-go/common/crypto/keys/sm2"
 	commoncryptotypes "github.com/uptsmart/uptick-sdk-go/common/crypto/types"
 	"github.com/uptsmart/uptick-sdk-go/types"
 	"github.com/uptsmart/uptick-sdk-go/types/store"
@@ -179,8 +178,6 @@ func FromTmPubKey(Algo string, pubKey tmcrypto.PubKey) commoncryptotypes.PubKey 
 	var pubkey commoncryptotypes.PubKey
 	pubkeyBytes := pubKey.Bytes()
 	switch Algo {
-	case "sm2":
-		pubkey = &sm2.PubKey{Key: pubkeyBytes}
 	case "secp256k1":
 		pubkey = &secp256k1.PubKey{Key: pubkeyBytes}
 	}

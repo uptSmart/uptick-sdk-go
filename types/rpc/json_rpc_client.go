@@ -34,6 +34,16 @@ type JSONRpcClient struct {
 	*WSEvents
 }
 
+func (c JSONRpcClient) GenesisChunked(ctx context.Context, u uint) (*ctypes.ResultGenesisChunk, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (c JSONRpcClient) BlockSearch(ctx context.Context, query string, page, perPage *int, orderBy string) (*ctypes.ResultBlockSearch, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
 func NewJSONRpcClient(rpcAddr, wsAddr string, endpoint string, timeout uint, header http.Header) (JSONRpcClient, error) {
 	if wsAddr == "" {
 		wsAddr = rpcAddr

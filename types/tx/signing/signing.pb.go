@@ -378,7 +378,7 @@ func (m *SignatureDescriptor_Data_Multi) GetSignatures() []*SignatureDescriptor_
 }
 
 func init() {
-	proto.RegisterEnum("cosmos.tx.signing.v1beta1.SignMode", SignMode_name, SignMode_value)
+	// proto.RegisterEnum("cosmos.tx.signing.v1beta1.SignMode", SignMode_name, SignMode_value)
 	proto.RegisterType((*SignatureDescriptors)(nil), "cosmos.tx.signing.v1beta1.SignatureDescriptors")
 	proto.RegisterType((*SignatureDescriptor)(nil), "cosmos.tx.signing.v1beta1.SignatureDescriptor")
 	proto.RegisterType((*SignatureDescriptor_Data)(nil), "cosmos.tx.signing.v1beta1.SignatureDescriptor.Data")
