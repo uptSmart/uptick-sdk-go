@@ -160,6 +160,8 @@ func (base *baseClient) BuildAndSendWithAccount(addr string, accountNumber, sequ
 
 func (base *baseClient) BuildAndSend(msg []sdktypes.Msg, baseTx sdktypes.BaseTx) (sdktypes.ResultTx, sdktypes.Error) {
 
+	fmt.Printf("-----xxl msg %v \n", msg)
+
 	var res sdktypes.ResultTx
 	var address string
 
@@ -179,6 +181,7 @@ func (base *baseClient) BuildAndSend(msg []sdktypes.Msg, baseTx sdktypes.BaseTx)
 		return nil
 	}
 
+	fmt.Printf("-----xxl msg 2 \n")
 	retryIfFunc := func(err error) bool {
 		e, ok := err.(sdktypes.Error)
 		if ok && sdktypes.Code(e.Code()) == sdktypes.WrongSequence {
@@ -187,12 +190,14 @@ func (base *baseClient) BuildAndSend(msg []sdktypes.Msg, baseTx sdktypes.BaseTx)
 		return false
 	}
 
+	fmt.Printf("-----xxl msg 3 \n")
 	onRetryFunc := func(n uint, err error) {
 		_ = base.removeCache(address)
 		base.Logger().Error("wrong sequence, will retry",
 			"address", address, "attempts", n, "err", err.Error())
 	}
 
+	fmt.Printf("-----xxl msg 4 \n")
 	err := retry.Do(retryableFunc,
 		retry.Attempts(tryThreshold),
 		retry.RetryIf(retryIfFunc),
@@ -200,9 +205,14 @@ func (base *baseClient) BuildAndSend(msg []sdktypes.Msg, baseTx sdktypes.BaseTx)
 		retry.LastErrorOnly(true),
 	)
 
+	fmt.Printf("-----xxl msg 5 \n")
 	if err != nil {
+
+		fmt.Printf("-----xxl msg 6 %v \n", err)
 		return res, sdktypes.Wrap(err)
 	}
+
+	fmt.Printf("-----xxl msg 7 \n")
 	return res, nil
 }
 

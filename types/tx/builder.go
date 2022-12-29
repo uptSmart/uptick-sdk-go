@@ -231,6 +231,9 @@ func (w *wrapper) SetFeeGranter(feeGranter sdk.AccAddress) {
 }
 
 func (w *wrapper) SetSignatures(signatures ...signing.SignatureV2) error {
+
+	fmt.Printf("--- xxl SetSignatures %v \n", signatures)
+
 	n := len(signatures)
 	signerInfos := make([]*SignerInfo, n)
 	rawSigs := make([][]byte, n)
@@ -296,7 +299,11 @@ func (w *wrapper) SetNonCriticalExtensionOptions(extOpts ...*codectypes.Any) {
 
 // PubKeyToAny converts a crypto.PubKey to a proto Any.
 func PubKeyToAny(key crypto.PubKey) (*codectypes.Any, error) {
+
+	fmt.Printf("--- xxl key is 0 %v \n", key)
 	protoMsg, ok := key.(proto.Message)
+
+	fmt.Printf("--- xxl protoMsg is 1 %v \n", protoMsg)
 	if !ok {
 		return nil, fmt.Errorf("can't proto encode %T", protoMsg)
 	}

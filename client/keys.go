@@ -3,6 +3,7 @@ package client
 import (
 	"fmt"
 	tmcrypto "github.com/tendermint/tendermint/crypto"
+	ethsecp256k1 "github.com/uptsmart/uptick-sdk-go/common/crypto/keys/eth_secp256k1"
 
 	kmg "github.com/uptsmart/uptick-sdk-go/common/crypto"
 	cryptoamino "github.com/uptsmart/uptick-sdk-go/common/crypto/codec"
@@ -161,7 +162,10 @@ func (k KeyManager) Delete(name, password string) error {
 }
 
 func (k KeyManager) Find(name, password string) (tmcrypto.PubKey, types.AccAddress, error) {
+
 	info, err := k.KeyDAO.Read(name, password)
+	fmt.Printf("--- xxl info %v-%v \n", info.PubKey, info.Algo)
+
 	if err != nil {
 		return nil, nil, types.WrapWithMessage(err, "name %s not exist", name)
 	}
@@ -171,6 +175,7 @@ func (k KeyManager) Find(name, password string) (tmcrypto.PubKey, types.AccAddre
 		return nil, nil, types.WrapWithMessage(err, "name %s not exist", name)
 	}
 
+	fmt.Printf("--- xxl info %v \n", pubKey)
 	return FromTmPubKey(info.Algo, pubKey), types.AccAddress(pubKey.Address().Bytes()), nil
 }
 
@@ -180,6 +185,8 @@ func FromTmPubKey(Algo string, pubKey tmcrypto.PubKey) commoncryptotypes.PubKey 
 	switch Algo {
 	case "secp256k1":
 		pubkey = &secp256k1.PubKey{Key: pubkeyBytes}
+	case "eth_secp256k1":
+		pubkey = &ethsecp256k1.PubKey{Key: pubkeyBytes}
 	}
 	return pubkey
 }

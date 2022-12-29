@@ -268,7 +268,11 @@ func (f *Factory) Sign(name string, txBuilder TxBuilder) error {
 		Sequence:      f.sequence,
 	}
 
+	fmt.Printf("xxl Sign %v - %v \n", name, f.password)
 	pubkey, _, err := f.keyManager.Find(name, f.password)
+
+	fmt.Printf("xxl Sign %v \n", pubkey)
+
 	if err != nil {
 		return err
 	}
