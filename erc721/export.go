@@ -6,6 +6,7 @@ import sdk "github.com/uptsmart/uptick-sdk-go/types"
 type Client interface {
 	sdk.Module
 	ConvertERC721(contractAddress string, tokenId string, receiver string, sender string, classId string, nftId string, baseTx sdk.BaseTx) (sdk.ResultTx, sdk.Error)
+	ConvertNFT(contractAddress string, tokenId string, receiver string, sender string, classId string, nftId string, baseTx sdk.BaseTx) (sdk.ResultTx, sdk.Error)
 }
 
 //msg := &types.MsgConvertERC721{

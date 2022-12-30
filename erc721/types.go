@@ -49,3 +49,39 @@ func (m *MsgConvertERC721) GetSigners() []sdk.AccAddress {
 	//TODO implement me
 	panic("implement me")
 }
+
+func NewMsgConvertNFTSend(
+	contractAddress string, tokenId string, receiver string,
+	sender string, classId string, nftId string) *MsgConvertNFT {
+	return &MsgConvertNFT{
+		ContractAddress: contractAddress,
+		TokenId:         tokenId,
+		Receiver:        receiver,
+		Sender:          sender,
+		ClassId:         classId,
+		NftId:           nftId,
+	}
+}
+
+// Route Implements Msg.
+func (msg MsgConvertNFT) Route() string { return ModuleName }
+
+func (m *MsgConvertNFT) Type() string {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (m *MsgConvertNFT) ValidateBasic() error {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (m *MsgConvertNFT) GetSignBytes() []byte {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (m *MsgConvertNFT) GetSigners() []sdk.AccAddress {
+	//TODO implement me
+	panic("implement me")
+}
