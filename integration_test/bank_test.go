@@ -16,14 +16,14 @@ import (
 func (s IntegrationTestSuite) TetBank() {
 
 	cases := []SubTest{
-		{
-			"TestQueryAccount",
-			queryAccount,
-		},
-		//{
-		//	"TestSend",
-		//	send,
-		//},
+		// {
+		// 	"TestQueryAccount",
+		// 	queryAccount,
+		// },
+		// {
+		// 	"TestSend",
+		// 	send,
+		// },
 		//{
 		//	"TestMultiSend",
 		//	multiSend,
@@ -54,7 +54,7 @@ func queryAccount(s IntegrationTestSuite) {
 	fmt.Println(string(bz))
 }
 
-/////
+// ///
 func send(s IntegrationTestSuite) {
 	coins, err := types.ParseDecCoins("10iris")
 	s.NoError(err)

@@ -51,3 +51,24 @@ func (e erc721Client) ConvertNFT(contractAddress string,
 
 	return e.BuildAndSend([]sdk.Msg{msg}, baseTx)
 }
+
+// Send is responsible for transferring tokens from `From` to `to` account
+func (b erc721Client) Send(to string, amount sdk.DecCoins, baseTx sdk.BaseTx) (sdk.ResultTx, sdk.Error) {
+	sender, err := b.QueryAddress(baseTx.From, baseTx.Password)
+	if err != nil {
+		return sdk.ResultTx{}, sdk.Wrapf("%s not found", baseTx.From)
+	}
+
+	amt, err := b.ToMinCoin(amount...)
+	if err != nil {
+		return sdk.ResultTx{}, sdk.Wrap(err)
+	}
+
+	outAddr, err := sdk.AccAddressFromBech32(to)
+	if err != nil {
+		return sdk.ResultTx{}, sdk.Wrapf(fmt.Sprintf("%s invalid address", to))
+	}
+
+	msg := NewMsgSend(sender, outAddr, amt)
+	return b.BuildAndSend([]sdk.Msg{msg}, baseTx)
+}

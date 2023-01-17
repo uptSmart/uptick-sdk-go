@@ -170,6 +170,8 @@ func (base *baseClient) BuildAndSend(msg []sdktypes.Msg, baseTx sdktypes.BaseTx)
 	defer base.l.Unlock(baseTx.From)
 
 	retryableFunc := func() error {
+		fmt.Println(111111111111111)
+		fmt.Println(msg)
 		txByte, ctx, e := base.buildTx(msg, baseTx)
 		if e != nil {
 			return e
